@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">PTBKel1</string>
+    <string name="menu_voting">Menu Voting</string>
+    <string name="pemilihan_presiden_mahasiswa_universitas_andalas">Pemilihan Presiden Mahasiswa Universitas Andalas</string>
+    <string name="detail">Detail</string>
+    <string name="e_voting">E-voting</string>
+    <string name="menu_home">home</string>
+    <string name="informasi_kandidat">Informasi Kandidat</string>
+    <string name="voting">Voting</string>
+    <string name="home">Home</string>
+    <string name="menu_kandidat">Menu Kandidat</string>
+    <string name="Keluar">Home</string>
+    <string name="berhasil_voting_kandidat">Berhasil Voting Kandidat</string>
+    <string name="e_voting1">E-Voting</string>
+    <string name="nim">NIM</string>
+    <string name="gunakan_hak_suaramu_dengan_bijak">Gunakan Hak Suaramu Dengan Bijak!!!</string>
+    <string name="login">Login</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_in_sebagai_admin">Sign In Sebagai Admin</string>
+    <string name="voting_kandidat">Voting Kandidat</string>
+    <string name="voting_kandidat1">Voting Kandidat</string>
+    <string name="logout">Logout</string>
+    <string name="logout1">Logout</string>
+    <string name="kandidat_1">Kandidat 1</string>
+    <string name="nama_kandidat">Nama Kandidat</string>
+    <string name="nama_presma">Nama Presma</string>
+    <string name="nama_wapresma">Nama Wapresma</string>
+    <string name="prodi_fakultas">Prodi/Fakultas</string>
+    <string name="visi">Visi</string>
+    <string name="misi">Misi</string>
+    <string name="verify">Verify</string>
+</resources>

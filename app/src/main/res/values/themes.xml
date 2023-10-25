@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.PTBKel1" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.PTBKel1" parent="Base.Theme.PTBKel1" />
+    <style name="Theme.PTBKel1.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.PTBkel1.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>
