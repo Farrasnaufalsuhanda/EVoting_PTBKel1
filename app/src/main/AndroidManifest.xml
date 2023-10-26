@@ -13,6 +13,16 @@
         android:theme="@style/Theme.PTBKel1"
         tools:targetApi="31">
         <activity
+            android:name=".TambahPeriodeActivity"
+            android:exported="false"
+            android:label="@string/title_activity_tambah_periode"
+            android:theme="@style/Theme.PTBKel1" />
+        <activity
+            android:name=".HasilVoting"
+            android:exported="false"
+            android:label="@string/title_activity_hasil_voting"
+            android:theme="@style/Theme.PTBKel1" />
+        <activity
             android:name=".VerificationActivity"
             android:exported="false" />
         <activity

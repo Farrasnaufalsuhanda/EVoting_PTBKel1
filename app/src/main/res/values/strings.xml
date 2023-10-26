@@ -29,4 +29,6 @@
     <string name="visi">Visi</string>
     <string name="misi">Misi</string>
     <string name="verify">Verify</string>
+    <string name="title_activity_hasil_voting">HasilVoting</string>
+    <string name="title_activity_tambah_periode">TambahPeriodeActivity</string>
 </resources>
