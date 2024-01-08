@@ -1,3 +1,6 @@
 package com.example.ptbkel1.models
 
-data class Homeuser(val textnamaperiode:String, val texttahunperiode:String)
+data class Homeuser(
+    val namaperiode:String?=null,
+    val tahunperiode:String?=null
+)

@@ -1,3 +1,9 @@
 package com.example.ptbkel1.models
 
-data class MenuKandidat(val namakandidat:String, val visikandidat:String, val misikandidat:String)
+class MenuKandidat(
+    val urlimg:String?=null,
+    val namakandidat:String?=null,
+    val visikandidat:String?=null,
+    val misikandidat:String?=null,
+    val misikandidat2:String?=null
+)

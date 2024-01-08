@@ -69,12 +69,13 @@
         tools:ignore="MissingConstraints">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
+            android:id="@+id/recyclerView"
             android:layout_width="400dp"
             android:layout_height="750dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/card_view_pemilihan"
             tools:ignore="MissingConstraint" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
