@@ -6,44 +6,36 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ptbkel1.R
-import com.google.android.material.snackbar.Snackbar
 import com.example.ptbkel1.models.Homeuser
 
-class HomeuserAdapter(private val votelist: ArrayList<Homeuser>): RecyclerView.Adapter<HomeuserAdapter.voteListViewHolder>(){
+class HomeuserAdapter(private val votelist: ArrayList<Homeuser>, private val listener: OnItemClickListener) :
+    RecyclerView.Adapter<HomeuserAdapter.VoteListViewHolder>() {
 
-    private lateinit var myListener : onItemClickListener
-
-    interface onItemClickListener{
+    interface OnItemClickListener {
         fun onItemClick(position: Int)
     }
 
-    fun setOnItemClickListener(listener: onItemClickListener){
-        myListener = listener
+    class VoteListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val namaperiode: TextView = itemView.findViewById(R.id.textnamaperiode)
+        val tahunperiode: TextView = itemView.findViewById(R.id.texttahunperiode)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): voteListViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VoteListViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.card_view_pemilihan, parent, false)
-        return voteListViewHolder(view, myListener)
+        return VoteListViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: HomeuserAdapter.voteListViewHolder, position: Int) {
-        val currentPosition = votelist[position]
-        holder.namaperiode.text = currentPosition.textnamaperiode
-        holder.tahunperiode.text = currentPosition.texttahunperiode
+    override fun onBindViewHolder(holder: VoteListViewHolder, position: Int) {
+        val currentUser = votelist[position]
+        holder.namaperiode.text = currentUser.namaperiode
+        holder.tahunperiode.text = currentUser.tahunperiode
+
+        holder.itemView.setOnClickListener {
+            listener.onItemClick(position)
+        }
     }
 
     override fun getItemCount(): Int {
         return votelist.size
-    }
-
-    class voteListViewHolder(itemView: View, listener: onItemClickListener) : RecyclerView.ViewHolder(itemView){
-        val namaperiode : TextView = itemView.findViewById(R.id.textnamaperiode)
-        val tahunperiode : TextView = itemView.findViewById(R.id.texttahunperiode)
-        init {
-            itemView.setOnClickListener {
-                listener.onItemClick(absoluteAdapterPosition)
-            }
         }
-    }
-
 }
