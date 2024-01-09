@@ -64,7 +64,6 @@ class mobileNumberActivity : AppCompatActivity() {
         // [END phone_auth_callbacks]
 
         binding.btnSend.setOnClickListener({
-
             startPhoneNumberVerification(binding.noHp.text.toString())
         })
     }

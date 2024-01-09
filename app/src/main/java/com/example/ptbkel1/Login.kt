@@ -55,7 +55,7 @@ class Login : AppCompatActivity() {
             .addOnCompleteListener(this) {
                 if (it.isSuccessful) {
                     Toast.makeText(this, "Selamat datang", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, mobileNumberActivity::class.java)
+                    val intent = Intent(this, Home::class.java)
                     startActivity(intent)
                 } else {
                     Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()

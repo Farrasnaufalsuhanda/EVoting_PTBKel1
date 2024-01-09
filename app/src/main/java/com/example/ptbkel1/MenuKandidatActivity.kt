@@ -1,14 +1,14 @@
 package com.example.ptbkel1
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.navigation.ui.AppBarConfiguration
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ptbkel1.adapter.MenuKandidatAdapter
+import com.example.ptbkel1.databinding.ActivityMenuKandidatBinding
 import com.example.ptbkel1.models.MenuKandidat
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -19,7 +19,7 @@ import java.util.ArrayList
 
 class MenuKandidatActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var binding: ActivityMenuKandidatBinding
     private lateinit var recyclerView: RecyclerView
     private lateinit var menulist: ArrayList<MenuKandidat>
     private lateinit var adapter: MenuKandidatAdapter
@@ -27,7 +27,8 @@ class MenuKandidatActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menu_kandidat)
+        binding = ActivityMenuKandidatBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         menulist = arrayListOf()
         recyclerView = findViewById(R.id.recycler_view3)
@@ -46,35 +47,32 @@ class MenuKandidatActivity : AppCompatActivity() {
                             menulist.add(user!!)
                         }
                     }
-                    recyclerView.adapter =
-                        MenuKandidatAdapter(menulist, this@MenuKandidatActivity)
-
+                    adapter.notifyDataSetChanged()
                 } else {
                     Log.e("SNAPSHOT HOME NOT EXIST", "Kosong")
                 }
-
-//                try {
-//                    snapshot.exists()
-//                    for (dataSnapShot in snapshot.children) {
-//                        val user = dataSnapShot.getValue(Homeuser::class.java)
-//                        Log.d("User Data Snapshot", user.toString())
-//                        if (!votelist.contains(user)) {
-//                            votelist.add(user!!)
-//                        }
-//                    }
-//                } catch (e: Exception) {
-//                    Log.e("SNAPSHOT HOME NOT EXIST", e.message.toString())
-//                }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(this@MenuKandidatActivity, error.toString(), Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(this@MenuKandidatActivity, error.toString(), Toast.LENGTH_SHORT).show()
             }
         })
 
+        adapter = MenuKandidatAdapter(menulist, object : MenuKandidatAdapter.OnClickListener {
+            override fun onItemClick(position: Int) {
+                val selectedKandidat = menulist[position]
 
+                val intent = Intent(this@MenuKandidatActivity, DetailKandidatActivity::class.java)
+                intent.putExtra("kandidat", selectedKandidat)
+                startActivity(intent)
+            }
+        })
+
+        recyclerView.adapter = adapter
     }
 
-
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
+        }
 }
